@@ -1,7 +1,24 @@
-import { configure } from '@storybook/html';
+import { addDecorator, addParameters, configure } from '@storybook/html';
+import { withA11y } from '@storybook/addon-a11y';
 
-// Addons
-import '@storybook/addon-console';
+import Twig from 'twig';
+import twigDrupal from 'twig-drupal-filters';
 
-// automatically import all files ending in *.stories.js
-  configure(require.context('../stories', true, /\.stories\.js$/), module);
+// Add the filters to Drupal.
+twigDrupal(Twig);
+
+// Automatically import all files ending in *.stories.js
+const twig = require.context('../twig', true, /\.stories\.(ts|js)$/);
+function loadStories() {
+  twig.keys().forEach(filename => twig(filename));
+}
+
+// Helps make UI components more accessible.
+addDecorator(withA11y);
+addParameters({
+  a11y: {
+    restoreScroll: true,
+  }
+});
+
+configure(loadStories, module);

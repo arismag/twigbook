@@ -9,12 +9,19 @@
     "build-storybook": "build-storybook"
   },
   "keywords": [],
-  "author": "",
+  "author": "Bill Seremetis",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.6.4",
+    "@storybook/addon-backgrounds": "^5.2.5",
     "@storybook/html": "^5.2.5",
+    "@storybook/addon-a11y": "^5.2.5",
+    "@storybook/addon-actions": "^5.2.5",
+    "@storybook/addon-console": "^1.2.1",
+    "@storybook/addon-knobs": "^5.2.5",
+    "@storybook/addon-notes": "^5.2.5",
+    "@storybook/addon-viewport": "^5.2.5",
     "babel-loader": "^8.0.6"
   }
 }

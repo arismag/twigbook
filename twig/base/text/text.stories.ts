@@ -1,4 +1,5 @@
 import { storiesOf } from '@storybook/html';
+import markdownNotes from './Notes.md';
 
 import Text from './text.twig';
 import './text.css';
@@ -22,6 +23,6 @@ export const text = `
 const randomText = Faker.lorem.paragraphs(3);
 
 storiesOf('Base/Text', module)
-  .add('Plain', () => Text({ text: plain }))
+  .add('Plain', () => Text({ text: plain }), {notes: { markdown: markdownNotes }})
   .add('Formatted', () => Text({ text }))
   .add('Random Text', () => Text({ text:randomText }));

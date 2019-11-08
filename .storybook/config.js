@@ -16,9 +16,12 @@ function loadStories() {
 // Helps make UI components more accessible.
 addDecorator(withA11y);
 addParameters({
+  options: {
+    storySort: (a, b) => a[1].id.localeCompare(b[1].id),
+  },
   a11y: {
     restoreScroll: true,
-  }
+  },
 });
 
 configure(loadStories, module);
